@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import AddButton from './AddButton'
 
 const Generator = () => {
     const [name, setName] = useState<string>("");
@@ -11,6 +11,14 @@ const Generator = () => {
         }
         if(type === 'Number') {
             console.log('type ' + {name} + "= number")
+        }
+        if(type === 'Array') {
+            console.log(`type ${name} = Array<${type}>`) // plus callback or call of new function
+        }
+        if(type === 'Object') {
+            console.log(`type ${name} = {
+
+            }`) //plus callback or call of new function
         }
     }
     console.log(result);
@@ -33,7 +41,8 @@ const Generator = () => {
                     <option value="Object">Object</option>
                 </select>
             </label>
-        </form>
+        </form> 
+        <AddButton type={type} />
         <div className="print">
             {result}
         </div>
